@@ -1,0 +1,5 @@
+.sample-case-choice{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:15px}
+.sample-case-button{display:inline-flex;align-items:center;gap:8px;border:1px solid #514a3d;background:transparent;color:#d4a96b;padding:10px 12px;border-radius:3px;font-size:11px;cursor:pointer}
+.sample-case-button:hover:not(:disabled){border-color:#d4a96b;background:#211f1a}
+.sample-case-button:disabled{opacity:.6;cursor:wait}
+.sample-case-choice>span{color:#85857d;font-size:9px}

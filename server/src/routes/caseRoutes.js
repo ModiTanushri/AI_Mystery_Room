@@ -1,0 +1,11 @@
+import { Router } from 'express';
+import { postCase,postDemoCase,retrieveCase } from '../controllers/caseController.js';
+import { validateBody } from '../middleware/validateRequest.js';
+import { asyncHandler } from '../middleware/asyncHandler.js';
+import { generationLimiter } from '../middleware/rateLimiter.js';
+import { createCaseSchema } from '../validators/caseSchemas.js';
+const router=Router();
+router.post('/demo',generationLimiter,asyncHandler(postDemoCase));
+router.post('/',generationLimiter,validateBody(createCaseSchema),asyncHandler(postCase));
+router.get('/:caseId',asyncHandler(retrieveCase));
+export default router;

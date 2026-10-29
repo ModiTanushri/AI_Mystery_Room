@@ -1,0 +1,1 @@
+export const validateBody=schema=>(req,res,next)=>{const parsed=schema.safeParse(req.body);if(!parsed.success)return res.status(400).json({error:{code:'INVALID_REQUEST',message:'Please check your input and try again.'}});req.body=parsed.data;next();};

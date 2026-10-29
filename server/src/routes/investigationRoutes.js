@@ -1,0 +1,12 @@
+import { Router } from 'express';
+import { progress,markOpened,verdict,results } from '../controllers/investigationController.js';
+import { validateBody } from '../middleware/validateRequest.js';
+import { verdictLimiter } from '../middleware/rateLimiter.js';
+import { verdictSchema } from '../validators/investigationSchemas.js';
+import { asyncHandler } from '../middleware/asyncHandler.js';
+const router=Router();
+router.get('/:investigationId',asyncHandler(progress));
+router.post('/:investigationId/evidence/:evidenceId/open',asyncHandler(markOpened));
+router.post('/:investigationId/verdict',verdictLimiter,validateBody(verdictSchema),asyncHandler(verdict));
+router.get('/:investigationId/results',asyncHandler(results));
+export default router;
