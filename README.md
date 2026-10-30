@@ -6,6 +6,10 @@ Create a fictional mystery, examine its evidence, submit one final verdict, and 
 
 If this project has a hosted website URL, open it in your browser and choose **Create your mystery** or **Try the sample case**. You do not need Node.js, MongoDB, or a Gemini key to use a hosted site.
 
+### Start with the sample case
+
+Choose **Try the sample case** for the most reliable way to start playing. It does not call Gemini. **Generate mystery** uses Gemini to create a custom case from your scenario, so it can take longer and may fail if the AI service is temporarily unavailable or its API quota has been reached. If it keeps loading or shows an error, return to the creation page and choose **Try the sample case** instead.
+
 Pushing this repository to GitHub does **not** publish or run the app. A public player link requires deploying the frontend, API, and database. Until a deployment URL is added here, use the local setup below.
 
 ## Run locally on Windows
@@ -91,7 +95,7 @@ This project includes a [Render Blueprint](render.yaml) that builds the client a
 ### 6. Check the public app and share it
 
 1. Open the service's `https://...onrender.com` URL. Opening `/api/health` on the same domain should return `{"status":"ok"}`.
-2. Try **Try the sample case**, then try **Generate mystery**. The sample case does not use Gemini; custom generation requires a working Gemini key and available API quota.
+2. Start with **Try the sample case** to confirm the deployed game works. It does not use Gemini. **Generate mystery** creates a custom case through Gemini and may take longer or fail if the AI service is unavailable or the API quota is reached; players can use the sample case instead.
 3. Share the service's root URL with players. They can open it directly in a browser. Later pushes to the connected GitHub branch trigger a new deployment.
 
 The Blueprint uses Render's free web service plan. Free services sleep after 15 minutes without traffic, so the first visit after idle time can take about a minute to wake up. See Render's [free service limits](https://render.com/docs/free).
